@@ -8,7 +8,7 @@
   </head>
 
   <body>
-    <%- include("../includes/navbar.ejs")%>
+    <%- include("../includes/navbar.ejs") %>
     <div class="container">
       <br /><br />
       <h1>Community Exchange</h1>
@@ -31,33 +31,33 @@
         <div class="wardrobe-container">
           <button class="nav-btn prev">&lt;</button>
           <div class="wardrobe-items">
-            <% Object.keys(wardrobeItems).forEach(category=> { %>
-            <div class="category-section" id="<%= category %>">
-              <% wardrobeItems[category].forEach(item=> { %>
-              <div class="item-card">
-                <img
-                  src="<%= item.link %>"
-                  alt="<%= item.name %>"
-                  height="200"
-                  width="150"
-                />
-                <h3><%= item.name %></h3>
-                <p><%= item.color %></p>
-                <div class="item-actions">
-                  <button class="action-btn trade-btn"><a href="https://www.freeup.app/">Trade</a></button>
-                  <button class="action-btn donate-btn"><a href="https://clothesboxfoundation.org/pickup/">Donate</a></button>
-                  <button class="action-btn lend-btn"><a href="https://www.freeup.app/">Lend</a></button>
-                </div>
+            <% Object.keys(wardrobeItems).forEach(category => { %>
+              <div class="category-section" id="<%= category %>">
+                <% wardrobeItems[category].forEach(item => { %>
+                  <div class="item-card">
+                    <img
+                      src="<%= item.link.replace('blob', 'raw') %>" <!-- Updated to replace 'blob' with 'raw' -->
+                      alt="<%= item.name %>"
+                      height="200"
+                      width="150"
+                    />
+                    <h3><%= item.name %></h3>
+                    <p><%= item.color %></p>
+                    <div class="item-actions">
+                      <button class="action-btn trade-btn"><a href="https://www.freeup.app/">Trade</a></button>
+                      <button class="action-btn donate-btn"><a href="https://clothesboxfoundation.org/pickup/">Donate</a></button>
+                      <button class="action-btn lend-btn"><a href="https://www.freeup.app/">Lend</a></button>
+                    </div>
+                  </div>
+                <% }); %>
               </div>
-              <% }); %>
-            </div>
             <% }); %>
           </div>
           <button class="nav-btn next">&gt;</button>
         </div>
       </div>
     </div>
-    <%- include("../includes/footer.ejs")%>
+    <%- include("../includes/footer.ejs") %>
 
     <script src="js/addcollection.js"></script>
   </body>

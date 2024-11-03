@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Today's Outfit Generator</title>
-
 </head>
 <body>
     <% layout("layouts/boilerplate") %>
@@ -58,7 +57,6 @@
             setTimeout(() => {
                 generatingOverlay23.classList.remove('active');
 
-                const randomCategory = Object.keys(wardrobeItems);
                 const randomShirt = wardrobeItems.shirts[Math.floor(Math.random() * wardrobeItems.shirts.length)];
                 const randomPants = wardrobeItems.pants[Math.floor(Math.random() * wardrobeItems.pants.length)];
 
@@ -68,7 +66,7 @@
                     const outfitItem23 = document.createElement('div');
                     outfitItem23.classList.add('outfit-item23');
                     outfitItem23.innerHTML = `
-                        <img src="${item.link}" alt="${item.name}">
+                        <img src="${item.link.replace('blob', 'raw')}" alt="${item.name}">
                         <div>${item.name} (${item.color})</div>
                     `;
                     outfitContainer23.appendChild(outfitItem23);
@@ -91,21 +89,21 @@
             const suggOutfit2 = document.querySelector('.suggoutfit2');
 
             suggOutfit1.innerHTML = `
-                <img src="${suggestedOutfits[0].shirt.link}" alt="${suggestedOutfits[0].shirt.name}">
+                <img src="${suggestedOutfits[0].shirt.link.replace('blob', 'raw')}" alt="${suggestedOutfits[0].shirt.name}">
                 <div>${suggestedOutfits[0].shirt.name} (${suggestedOutfits[0].shirt.color})</div>
-                <img src="${suggestedOutfits[0].pants.link}" alt="${suggestedOutfits[0].pants.name}">
+                <img src="${suggestedOutfits[0].pants.link.replace('blob', 'raw')}" alt="${suggestedOutfits[0].pants.name}">
                 <div>${suggestedOutfits[0].pants.name} (${suggestedOutfits[0].pants.color})</div>
-                <img src="${suggestedOutfits[0].watch.link}" alt="${suggestedOutfits[0].watch.name}">
+                <img src="${suggestedOutfits[0].watch.link.replace('blob', 'raw')}" alt="${suggestedOutfits[0].watch.name}">
                 <div>${suggestedOutfits[0].watch.name} (${suggestedOutfits[0].watch.color})</div>
                 <a href="${suggestedOutfits[0].buyLink}" class="buy-button">Buy Now</a>
             `;
 
             suggOutfit2.innerHTML = `
-                <img src="${suggestedOutfits[1].shirt.link}" alt="${suggestedOutfits[1].shirt.name}">
+                <img src="${suggestedOutfits[1].shirt.link.replace('blob', 'raw')}" alt="${suggestedOutfits[1].shirt.name}">
                 <div>${suggestedOutfits[1].shirt.name} (${suggestedOutfits[1].shirt.color})</div>
-                <img src="${suggestedOutfits[1].pants.link}" alt="${suggestedOutfits[1].pants.name}">
+                <img src="${suggestedOutfits[1].pants.link.replace('blob', 'raw')}" alt="${suggestedOutfits[1].pants.name}">
                 <div>${suggestedOutfits[1].pants.name} (${suggestedOutfits[1].pants.color})</div>
-                <img src="${suggestedOutfits[1].watch.link}" alt="${suggestedOutfits[1].watch.name}">
+                <img src="${suggestedOutfits[1].watch.link.replace('blob', 'raw')}" alt="${suggestedOutfits[1].watch.name}">
                 <div>${suggestedOutfits[1].watch.name} (${suggestedOutfits[1].watch.color})</div>
                 <a href="${suggestedOutfits[1].buyLink}" class="buy-button">Buy Now</a>
             `;

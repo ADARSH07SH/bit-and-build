@@ -1,21 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fashion Selector</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<% layout("layouts/boilerplate") %>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
-            overflow-y: scroll;
+            margin: auto;
+            padding: 5px;
+            
         }
         .container101 {
             display: flex;
@@ -55,6 +43,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            
         }
         .arrow {
             font-size: 18px;
@@ -124,7 +113,7 @@
             const img = document.querySelector(`#${category}-img`);
             img.style.opacity = '0';
             setTimeout(() => {
-                img.src = images[currentIndex[category]].link;
+                img.src = images[currentIndex[category]].link.replace('blob', 'raw'); // Updated to replace 'blob' with 'raw'
                 img.style.opacity = '1';
             }, 300);
         }
