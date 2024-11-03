@@ -32,12 +32,13 @@
     <div class="wardrobe-container">
         <button class="nav-btn prev">&lt;</button>
         <div class="wardrobe-items">
-           <% Object.keys(wardrobeItems).forEach(category => { %>
+           
+            <% Object.keys(wardrobeItems).forEach(category => { %>
   <div class="category-section" id="<%= category %>">
     <% if (Array.isArray(wardrobeItems[category])) { %>
       <% wardrobeItems[category].forEach(item => { %>
         <div class="item-card">
-          <img src="<%= item.link %>" alt="<%= item.name %>" height="200" width="150">
+          <img src="<%= item.link.replace('blob', 'raw') %>" alt="<%= item.name %>" height="200" width="150">
           <h3><%= item.name %></h3>
         </div>
       <% }); %>
@@ -46,6 +47,7 @@
     <% } %>
   </div>
 <% }); %>
+
 
         </div>
         <button class="nav-btn next">&gt;</button>

@@ -9,7 +9,7 @@ A web-based platform that helps users manage their wardrobe, track clothing usag
 - **User Account Management:** Implement a secure login and signup feature to support multiple accounts, enabling different users to manage their wardrobes individually while maintaining privacy and personal data security.
 <table>
   <tr>
-    <td><h2>Login Page</h2><img src="https://github.com/iamdhruvrathi/bit-n-build-404-brains-/blob/main/Working-app-ss/8caa1fda3a81c117fc9e4f68467a57e48e407255.jpg?raw=true" alt="img5" width="600"></td>
+    <td><h2>Login Page</h2><img src="https://github.com/dhruvrathi/bit-n-build-404-brains-/blob/main/Working-app-ss/8caa1fda3a81c117fc9e4f68467a57e48e407255.jpg?raw=true" alt="img5" width="600"></td>
     <td><h2>Signin Page</h2><img src="https://github.com/iamdhruvrathi/bit-n-build-404-brains-/blob/main/Working-app-ss/712ac767122ae553f4bbac9912ef9d96e2468913.jpg?raw=true" alt="img3" width="600"></td>
   </tr>
 </table>
