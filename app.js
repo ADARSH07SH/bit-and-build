@@ -9,7 +9,7 @@ const bodyParser = require("body-parser");
 
 const app = express();
 const port = 8080;
-
+//this is sql
 const pool = mysql
   .createPool({
     host: process.env.DB_HOST,
