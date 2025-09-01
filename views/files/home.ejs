@@ -1,0 +1,86 @@
+<% layout("layouts/boilerplate") %>
+
+<!-- Hero Section -->
+<div class="hero-section">
+    <div class="hero-content">
+        <h1>Organize Your Wardrobe with Ease</h1>
+        <p>Keep track of your clothes, create outfits, and make sustainable choices effortlessly.</p>
+        <div class="hero-buttons">
+            <button class="scan-btn"><a href="/outfit-generator">Today's Outfit</a></button>
+            <button class="add-btn"><a href="/add-collections">Add Collection</a></button>
+        </div>
+        
+
+    </div>
+    <div class="hero-illustration">
+        <img src="assets/hero-man.svg" alt="Wardrobe Illustration">
+    </div>
+</div>
+
+
+
+<!-- Wardrobe Section -->
+<div class="wardrobe-section">
+    <div class="category-buttons">
+        <button class="category-btn active" data-category="shirts">Shirts</button>
+        <button class="category-btn" data-category="pants">Pants</button>
+        <button class="category-btn" data-category="watches">Watches</button>
+        <button class="category-btn" data-category="belts">Belts</button>
+        <button class="category-btn" data-category="shoes">Shoes</button>
+        <button class="category-btn" data-category="perfume">Perfume</button>
+    </div>
+    <div class="wardrobe-container">
+        <button class="nav-btn prev">&lt;</button>
+        <div class="wardrobe-items">
+           
+            <% Object.keys(wardrobeItems).forEach(category => { %>
+  <div class="category-section" id="<%= category %>">
+    <% if (Array.isArray(wardrobeItems[category])) { %>
+      <% wardrobeItems[category].forEach(item => { %>
+        <div class="item-card">
+          <img src="<%= item.link.replace('blob', 'raw') %>" alt="<%= item.name %>" height="200" width="150">
+          <h3><%= item.name %></h3>
+        </div>
+      <% }); %>
+    <% } else { %>
+      <p>No items found for this category.</p>
+    <% } %>
+  </div>
+<% }); %>
+
+
+        </div>
+        <button class="nav-btn next">&gt;</button>
+    </div>
+</div>
+
+ <h1 class="page-title">Buy Outfits from Top Websites</h1>
+    <div class="outfit-card-container">
+        <div class="outfit-card">
+    <a href="https://www.myntra.com/shirts/roadster/roadster-men-regular-fit-typography-opaque-back-print-pure-cotton-casual-shirt/26195852/buy?utm_source=dms_bing_shopping&utm_medium=bing_cpc_shopping&utm_campaign=Bing-Topwear-Shopping-Test&msclkid=916abcedb05a14a501eada158e4eaf47&utm_term=4577954140365344&utm_content=Topwear-%20Shirts" class="card-link" target="_blank">
+        <img src="https://th.bing.com/th?id=OPAC.vKJWdjDQzAKT4A474C474&w=160&h=213&c=17&dpr=1.3&pid=21.1" alt="Trendy Shirt" class="outfit-image">
+        <h2 class="outfit-name">Buy Shirt</h2>
+        <p class="outfit-description">Trendy Shirts</p>
+        <button class="buy-outfit-button">Buy Now</button>
+    </a>
+</div>
+
+       <div class="outfit-card">
+    <a href="https://www.myntra.com/trousers/hubberholme/hubberholme-men-grey-stretchable-slim-fit-solid-cargos/11304650/buy?utm_source=dms_bing_shopping&utm_medium=bing_cpc_shopping&utm_campaign=Bing_Apparel_ShoppingCampaign&msclkid=5d9e53223bb7103fdb1435da04cad59f&utm_term=4578778774668153&utm_content=Bottomwear-%20Trousers" class="card-link" target="_blank">
+        <img src="https://th.bing.com/th/id/OIP.GQSKBmkcGmvUSQ1h2KYo_wHaKx?w=182&h=265&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Comfortable Pants" class="outfit-image">
+        <h2 class="outfit-name">Buy Pants</h2>
+        <p class="outfit-description">Comfortable Pants</p>
+        <button class="buy-outfit-button">Buy Now</button>
+    </a>
+</div>
+
+        <div class="outfit-card">
+    <a href="https://www.myntra.com/sports-shoes/campus/campus-women-black-mesh-running-shoes/18863048/buy?utm_source=dms_bing_shopping&utm_medium=bing_cpc_shopping&utm_campaign=Bing_Shopping_Campaign&msclkid=9dd6bfe7d3601df90c9ed91f9306f2d7&utm_term=4578091581149901&utm_content=Footwear" class="card-link" target="_blank">
+        <img src="https://th.bing.com/th/id/OIP.BE9wl0aG3-CpL_3z1I0vUgHaFX?w=223&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Stylish Shoes" class="outfit-image">
+        <h2 class="outfit-name">Buy Shoes</h2>
+        <p class="outfit-description">Stylish Shoes</p>
+        <button class="buy-outfit-button">Buy Now</button>
+    </a>
+</div>
+
+    </div>

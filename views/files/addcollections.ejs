@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/addcollection.css"> 
+    <title>Add Collection</title>  
+</head>
+<body>
+    <%- include("../includes/navbar.ejs") %>
+    
+    <div class="container">
+        <img src="/assets/collection1.svg" alt="Collection Icon" class="svg-icon">
+        <h1>Add Collection</h1>
+        <form action="/add-collection" method="POST">
+    <label for="type">Collection Type</label>
+    <select name="type" id="type" required>
+        <option value="">Select a type</option>
+        <option value="shirts" selected >Shirt</option>
+        <option value="pants">Pant</option>
+        <option value="belts">Belt</option>
+        <option value="shoes">Shoe</option>
+        <option value="watches">Watch</option>
+        <option value="perfume">Perfume</option>
+    </select>
+
+    <label for="color">Color:</label>
+    <input type="text" name="color" id="color" required>
+
+    <label for="googleImageLink">Google Image Link</label>
+    <input type="url" name="googleImageLink" id="googleImageLink" placeholder="https://example.com/image.jpg" required>
+
+    <button type="submit">Add Collection</button>
+</form>
+
+    </div>
+
+    <script src="/js/addcollection.js"></script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+:root {
+    --background-color: #ffffff;
+    --text-color: #000000;
+    --primary-color: #6C63FF;
+    --button-background: #000000;
+    --button-color: #ffffff;
+    --button-hover-background: #6C63FF;
+    --button-hover-color: #ffffff;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+.dark-mode {
+    --background-color: #000000;
+    --text-color:#ffffff;
+    --button-background: #ffffff;
+    --button-color: #000000;
+    --button-hover-background: #6C63FF;
+    --button-hover-color: #000000;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+   
+    margin: auto;
+    max-width: 600px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color:  var(--background-color);
+    animation: fadeIn 1s;
+    text-align: center;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label, input, select {
+    margin: 10px 0;
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+}
+
+.select{
+    color: #000000;
+}
+
+input[type="file"] {
+    border: none;
+    
+}
+
+button {
+    background-color: var(--button-background);
+    color: var(--button-color);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--button-hover-background);
+    color: var(--button-hover-color);
+}
+
+.svg-icon {
+    width: 100px;
+    height: auto;
+    margin: 20px auto;
+}
+
+
+.no-underline {
+    text-decoration: none; /* Removes underline */
+    color: inherit; /* Inherit the text color from parent */
+}

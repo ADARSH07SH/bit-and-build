@@ -1,0 +1,308 @@
+<% layout("layouts/boilerplate") %>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoShop</title>
+    <style>
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f0f0f0;
+    }
+    h1, h2 {
+        color: #333;
+    }
+    .category {
+        margin-bottom: 30px;
+    }
+    .products {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    .product {
+        background-color: #fff;
+        border-radius: 8px;
+        padding: 15px;
+        width: calc(25% - 15px);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+    .product:hover {
+        transform: translateY(-5px);
+    }
+    .product img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+    .product h3 {
+        margin: 10px 0;
+    }
+    .product p {
+        margin: 5px 0;
+    }
+    .add-to-cart, #buy-button {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .add-to-cart:hover, #buy-button:hover {
+        background-color: #45a049;
+    }
+    #cart-count, #leaf-tokens, #carbon-saved {
+        margin-right: 20px;
+    }
+    .leaf {
+        position: fixed;
+        width: 20px;
+        height: 20px;
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="green" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>');
+        background-size: contain;
+        opacity: 0;
+        z-index: 1000;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 1200px) {
+        .product {
+            width: calc(33.33% - 15px); /* 3 cards per row */
+        }
+    }
+
+    @media (max-width: 800px) {
+        .product {
+            width: calc(50% - 15px); /* 2 cards per row */
+        }
+    }
+
+    @media (max-width: 500px) {
+        .product {
+            width: 100%; /* 1 card per row */
+        }
+    }
+</style>
+
+</head>
+<body>
+    <div class="container">
+        <h1>EcoShop</h1>
+        <div>
+            <span id="cart-count">Cart: 0 items</span>
+            <span id="leaf-tokens">Leaf Tokens: 0</span>
+            <span id="carbon-saved">Carbon Saved: 0 kg CO2</span>
+        </div>
+        <button id="buy-button">Buy Items</button>
+
+        <div class="category">
+            <h2>Shirts</h2>
+            <div class="products">
+                <div class="product">
+                    <img src="https://th.bing.com/th/id/OIP.wM2NIW4SPEihAei1NlDyxQHaHa?rs=1&pid=ImgDetMain" alt="Classic White T-Shirt">
+                    <h3>Classic White T-Shirt</h3>
+                    <p>$20</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="https://th.bing.com/th/id/OIP.UY7qtlNEWGTH311B1XowXwHaJ4?rs=1&pid=ImgDetMain" alt="Striped Polo Shirt">
+                    <h3>Striped Polo Shirt</h3>
+                    <p>$30</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="https://th.bing.com/th/id/OIP.ppPOXBuEu8CRfC_qSYS1BQHaJc?rs=1&pid=ImgDetMain">
+                    <h3>Denim Shirt</h3>
+                    <p>$40</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="https://th.bing.com/th/id/OIP.GPyrMtdRY20bVhJydwLs0QHaLH?rs=1&pid=ImgDetMain" alt="Linen Shirt">
+                    <h3>Linen Shirt</h3>
+                    <p>$35</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="category">
+            <h2>Pants</h2>
+            <div class="products">
+                <div class="product">
+                    <img src="https://th.bing.com/th/id/OIP.JCT_x87cB0qvdDJslZpRlQHaIa?rs=1&pid=ImgDetMain" alt="Classic Jeans">
+                    <h3>Classic Jeans</h3>
+                    <p>$50</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="https://th.bing.com/th/id/OIP.4NJAMp4Gs_QTVlskckNeLAAAAA?rs=1&pid=ImgDetMain" alt="Chino Pants">
+                    <h3>Chino Pants</h3>
+                    <p>$45</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="https://th.bing.com/th/id/OIP.FKEVWWT5O74R3uIuv3spuAHaJ4?rs=1&pid=ImgDetMain" alt="Cargo Pants">
+                    <h3>Cargo Pants</h3>
+                    <p>$55</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="https://i5.walmartimages.com/asr/c94a4c81-bb55-497c-b853-3f8427c6ef31.8910f1d1f06d83f7aebb607cadb4feea.jpeg" alt="Dress Pants">
+                    <h3>Dress Pants</h3>
+                    <p>$60</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="category">
+            <h2>Hoodies</h2>
+            <div class="products">
+                <div class="product">
+                    <img src="https://th.bing.com/th/id/OIP.LvaLCEuld7tN5ERD-p7wSgAAAA?rs=1&pid=ImgDetMain">
+                    <h3>Zip-up Hoodie</h3>
+                    <p>$40</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="https://th.bing.com/th/id/OIP.jCTw5UssaP4yPs-2L5VLAQHaJ4?rs=1&pid=ImgDetMain" alt="Pullover Hoodie">
+                    <h3>Pullover Hoodie</h3>
+                    <p>$35</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="https://th.bing.com/th/id/OIP.qHMGL5RpG_d1iUyT9xTEWAAAAA?rs=1&pid=ImgDetMain">
+                    <h3>Fleece Hoodie</h3>
+                    <p>$45</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="https://th.bing.com/th/id/OIP.PPPCMPuEqL5QuFjGOy3pfwHaHa?rs=1&pid=ImgDetMain" alt="Graphic Hoodie">
+                    <h3>Graphic Hoodie</h3>
+                    <p>$50</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="category">
+            <h2>Shoes</h2>
+            <div class="products">
+                <div class="product">
+                    <img src="https://www.howmuchisit.org/wp-content/uploads/2015/08/shoe8.jpg" alt="Running Shoes">
+                    <h3>Running Shoes</h3>
+                    <p>$80</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="https://i5.walmartimages.com/asr/9fbd62ae-c191-4de9-93b1-998bb4525be0_1.0904e1f970b4179fa9b424984e09444f.jpeg" alt="Casual Sneakers">
+                    <h3>Casual Sneakers</h3>
+                    <p>$70</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1560371356-on-cloud-waterproof-0926-1540406991.jpg?crop=0.806xw:0.680xh;0.106xw,0.269xh" alt="Dress Shoes">
+                    <h3>Dress Shoes</h3>
+                    <p>$90</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="https://i5.walmartimages.com/asr/717f0686-4174-4408-89f4-0186ea4bafc1_1.fb7ed80d4bfc43e9c936ac87d64a11e0.jpeg" alt="Sandals">
+                    <h3>Sandals</h3>
+                    <p>$30</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="category">
+            <h2>Watches</h2>
+            <div class="products">
+                <div class="product">
+                    <img src="https://th.bing.com/th/id/OIP.efL-nKFEK7WxTZ7J09fCPgHaHa?rs=1&pid=ImgDetMain" alt="Analog Watch">
+                    <h3>Analog Watch</h3>
+                    <p>$100</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="https://th.bing.com/th/id/OIP.B5CBpkVsAk6Zdo5g-RaApgAAAA?rs=1&pid=ImgDetMain" alt="Digital Watch">
+                    <h3>Digital Watch</h3>
+                    <p>$80</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="https://th.bing.com/th/id/OIP.laqBpufxe_jI5aWWWw2h9AHaHa?w=1000&h=1000&rs=1&pid=ImgDetMain" alt="Smartwatch">
+                    <h3>Smartwatch</h3>
+                    <p>$150</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="https://th.bing.com/th/id/OIP.S9eMyQXTqVTUENN_Dikz1QHaHa?rs=1&pid=ImgDetMain" alt="Sports Watch">
+                    <h3>Sports Watch</h3>
+                    <p>$120</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let cart = 0;
+        let leafTokens = 0;
+        let carbonSaved = 0;
+
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', () => {
+                cart++;
+                updateCart();
+            });
+        });
+
+        document.getElementById('buy-button').addEventListener('click', () => {
+            if (cart > 0) {
+                leafTokens += cart;
+                carbonSaved += cart * 0.5; // 0.5 kg CO2 saved per item (example)
+                createLeafAnimation();
+                updateCart();
+                cart = 0;
+            }
+        });
+
+        function updateCart() {
+            document.getElementById('cart-count').textContent = `Cart: ${cart} items`;
+            document.getElementById('leaf-tokens').textContent = `Leaf Tokens: ${leafTokens}`;
+            document.getElementById('carbon-saved').textContent = `Carbon Saved: ${carbonSaved.toFixed(2)} kg CO2`;
+        }
+
+        function createLeafAnimation() {
+            for (let i = 0; i < 20; i++) {
+                let leaf = document.createElement('div');
+                leaf.className = 'leaf';
+                leaf.style.left = Math.random() * window.innerWidth + 'px';
+                leaf.style.top = '-20px';
+                document.body.appendChild(leaf);
+
+                let animation = leaf.animate([
+                    { transform: 'translate(0, 0) rotate(0deg)', opacity: 1 },
+                    { transform: `translate(${Math.random() * 100 - 50}px, ${window.innerHeight}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
+                ], {
+                    duration: Math.random() * 2000 + 3000,
+                    easing: 'ease-in-out',
+                    fill: 'forwards'
+                });
+
+                animation.onfinish = () => leaf.remove();
+            }
+        }
+    </script>
+</body>
+</html>

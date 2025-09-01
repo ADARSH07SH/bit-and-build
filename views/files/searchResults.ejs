@@ -1,0 +1,17 @@
+<% layout("layouts/boilerplate") %>
+
+<h1 class="searchh1">Wardrobe Finds in "<%= query %>"</h1>
+
+<div class="wardrobe-container1">
+  <% if (wardrobeItems.length > 0) { %>
+    <% wardrobeItems.forEach(item => { %>
+      <div class="item-card1">
+        <img src="<%= item.link.replace('blob', 'raw') %>" alt="<%= item.name %>" height="200" width="150"> <!-- Updated to replace 'blob' with 'raw' -->
+        <h3 class="item-name1"><%= item.name %></h3>
+        <p class="item-color1">Color: <%= item.color %></p>
+      </div>
+    <% }); %>
+  <% } else { %>
+    <p>No items found matching your search.</p>
+  <% } %>
+</div>

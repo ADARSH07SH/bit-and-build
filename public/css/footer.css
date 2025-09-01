@@ -1,0 +1,58 @@
+:root {
+    --bg-color-light: #f8f9fa;
+    --bg-color-dark: rgba(0, 0, 0, 0.8);
+
+    --text-color-light: #212529;
+    --text-color-dark: #ffffff;
+    --border-color-light: #dee2e6;
+    --border-color-dark: #495057;
+}
+
+body.dark-mode {
+    --bg-color-light: var(--bg-color-dark);
+    --text-color-light: var(--text-color-dark);
+    --border-color-light: var(--border-color-dark);
+}
+
+.footer {
+    padding: 2.5px; 
+    text-align: center;
+    background-color: var(--bg-color-light);
+    color: var(--text-color-light);
+    border-top: 1px solid var(--border-color-light);
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.footer-logo img {
+    padding-bottom: 5px;
+}
+
+.footer-socials a {
+    color: var(--text-color-light);
+    margin: 0 5px; 
+    padding: 0; 
+    transition: color 0.3s;
+}
+
+.footer-socials a:hover {
+    opacity: 0.7;
+}
+
+.footer p {
+    margin: 0px 0; 
+    padding: 0; 
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer {
+    margin-top: auto;
+}
+::-webkit-scrollbar {
+    display: none;
+}

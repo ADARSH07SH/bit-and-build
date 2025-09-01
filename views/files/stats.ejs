@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/stats.css">
+    <title>Usage Analytics Dashboard</title>
+</head>
+
+<body>
+    <%- include("../includes/navbar.ejs") %>
+        <div class="container">
+            <h1>Usage Analytics Dashboard</h1>
+            <p class="caption">Track your clothing usage and make sustainable choices! 🌿</p>
+
+            <div class="stats-section">
+                <div class="stats-card">
+                    <h2>Most Worn Items</h2>
+                    <ul>
+                        <% mostWornItems.forEach(item=> { %>
+                            <li>
+                                <%= item.name %> - Worn <%= item.count %> times
+                            </li>
+                            <% }); %>
+                    </ul>
+                </div>
+                <div class="stats-card">
+                    <h2>Least Worn Items</h2>
+                    <ul>
+                        <% leastWornItems.forEach(item=> { %>
+                            <li>
+                                <%= item.name %> - Worn <%= item.count %> times
+                            </li>
+                            <% }); %>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="trend-section">
+                <h2>Usage Trends</h2>
+                <canvas id="usageTrendChart"></canvas>
+            </div>
+        </div>
+        <%- include("../includes/footer.ejs")%>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="js/stats.js"></script>
+</body>
+
+</html>

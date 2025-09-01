@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Today's Outfit Generator</title>
+</head>
+<body>
+    <% layout("layouts/boilerplate") %>
+    <div class="gen12">
+        <div class="container23">
+            <h1>Today's Outfit Generator</h1>
+            <button id="generateBtn">Find Today's Outfit</button>
+            <div id="outfitContainer23"></div>
+        </div>
+        <div class="generating23">
+            <div class="generating-text23">Finding Outfit From Wardrobe</div>
+        </div>
+    </div>
+
+    <div class="suggestion12" style="display:none;">
+        <h1>Not Interested from Wardrobe</h1>
+        <h2>Check This Out</h2>
+        <div class="suggimage">
+            <div class="suggoutfit suggoutfit1"></div>
+            <div class="suggoutfit suggoutfit2"></div>
+        </div>
+    </div>
+
+    <script>
+        const generateBtn = document.getElementById('generateBtn');
+        const outfitContainer23 = document.getElementById('outfitContainer23');
+        const generatingOverlay23 = document.querySelector('.generating23');
+        const wardrobeItems = <%- JSON.stringify(wardrobeItems) %>;
+        
+        const suggestedOutfits = [
+            {
+                shirt: { link: 'https://th.bing.com/th/id/R.94eab86f3f65a9f4b6cff2a7c2b4e2f3?rik=OLTxpjErmC8Azw&riu=http%3a%2f%2fstylesatlife.com%2fwp-content%2fuploads%2f2017%2f05%2fPlain-white-formal-shirt.jpg&ehk=DUx1qUzbMnVlefvb0OtWuLxscrwxb05WVscgc6f6fPA%3d&risl=&pid=ImgRaw&r=0', name: 'Formal Shirt', color: 'Blue' },
+                pants: { link: 'https://images.tailorstore.com/YToyOntzOjU6IndpZHRoIjtpOjE2MDA7czo2OiJoZWlnaHQiO2I6MDt9/images/catalog/tailor-store-chinos-wales-camel-01.jpg', name: 'Chinos', color: 'Khaki' },
+                watch: { link: 'https://th.bing.com/th/id/R.d435ee7a24da1e2c406af96af712f751?rik=Y1FP7TWbF0PWSA&riu=http%3a%2f%2fcdna.lystit.com%2fphotos%2f7f7b-2014%2f04%2f26%2fvictorinox-swiss-army-gray-mens-chronograph-classic-xls-stainless-steel-bracelet-watch-45mm-241654-product-1-19531391-0-712569317-normal.jpeg&ehk=QVQh3Z2iCrhxJOzdu1fmOgWpJo9wJvr%2bsvEGftC2k3U%3d&risl=&pid=ImgRaw&r=0', name: 'Classic Watch', color: 'Silver' },
+                buyLink: 'https://www.myntra.com/shirts/basics/basics-men-blue-slim-fit-casual-shirt/18872126/buy?utm_source=dms_bing_shopping&utm_medium=bing_cpc_shopping&utm_campaign=Bing-Topwear-Shopping-Test&msclkid=da2b1dd7aa9a109871ac7b2f08f52927&utm_term=4577954140365344&utm_content=Topwear-%20Shirts'
+            },
+            {
+                shirt: { link: 'https://th.bing.com/th/id/OIP.M8X4mJd08rQryHQ2toGthgHaJc?rs=1&pid=ImgDetMain', name: 'Casual Shirt', color: 'White' },
+                pants: { link: 'https://n.nordstrommedia.com/id/sr3/95d9bb10-2e6d-487f-a916-1388ece0a9df.jpeg?crop=pad&pad_color=FFF&format=jpeg&w=780&h=1196&dpr=4', name: 'Jeans', color: 'Black' },
+                watch: { link: 'https://th.bing.com/th/id/OIP.jeTuMnQz9vnSy9bBuc-b9AHaHa?rs=1&pid=ImgDetMain', name: 'Sporty Watch', color: 'Black' },
+                buyLink: 'https://www.myntra.com/tshirts/bewakoof/bewakoof-men-black-solid-oversized-t-shirt/19042216/buy?utm_source=dms_bing_shopping&utm_medium=bing_cpc_shopping&utm_campaign=Bing-Topwear-Shopping-Test&msclkid=a8629ab2139419d1083afc4ab12b2d03&utm_term=4578435176400532&utm_content=Topwear-%20Tshirts'
+            }
+        ];
+
+        generateBtn.addEventListener('click', generateOutfit);
+
+        function generateOutfit() {
+            outfitContainer23.innerHTML = '';
+            generatingOverlay23.classList.add('active');
+
+            setTimeout(() => {
+                generatingOverlay23.classList.remove('active');
+
+                const randomShirt = wardrobeItems.shirts[Math.floor(Math.random() * wardrobeItems.shirts.length)];
+                const randomPants = wardrobeItems.pants[Math.floor(Math.random() * wardrobeItems.pants.length)];
+
+                const outfitItems = [randomShirt, randomPants];
+
+                outfitItems.forEach((item, index) => {
+                    const outfitItem23 = document.createElement('div');
+                    outfitItem23.classList.add('outfit-item23');
+                    outfitItem23.innerHTML = `
+                        <img src="${item.link.replace('blob', 'raw')}" alt="${item.name}">
+                        <div>${item.name} (${item.color})</div>
+                    `;
+                    outfitContainer23.appendChild(outfitItem23);
+
+                    setTimeout(() => {
+                        outfitItem23.style.opacity = '1';
+                        outfitItem23.style.transform = 'scale(1)';
+                    }, index * 200);
+                });
+
+                showSuggestedOutfits();
+            }, 3000);
+        }
+
+        function showSuggestedOutfits() {
+            const suggestionSection = document.querySelector('.suggestion12');
+            suggestionSection.style.display = 'block';
+
+            const suggOutfit1 = document.querySelector('.suggoutfit1');
+            const suggOutfit2 = document.querySelector('.suggoutfit2');
+
+            suggOutfit1.innerHTML = `
+                <img src="${suggestedOutfits[0].shirt.link.replace('blob', 'raw')}" alt="${suggestedOutfits[0].shirt.name}">
+                <div>${suggestedOutfits[0].shirt.name} (${suggestedOutfits[0].shirt.color})</div>
+                <img src="${suggestedOutfits[0].pants.link.replace('blob', 'raw')}" alt="${suggestedOutfits[0].pants.name}">
+                <div>${suggestedOutfits[0].pants.name} (${suggestedOutfits[0].pants.color})</div>
+                <img src="${suggestedOutfits[0].watch.link.replace('blob', 'raw')}" alt="${suggestedOutfits[0].watch.name}">
+                <div>${suggestedOutfits[0].watch.name} (${suggestedOutfits[0].watch.color})</div>
+                <a href="${suggestedOutfits[0].buyLink}" class="buy-button">Buy Now</a>
+            `;
+
+            suggOutfit2.innerHTML = `
+                <img src="${suggestedOutfits[1].shirt.link.replace('blob', 'raw')}" alt="${suggestedOutfits[1].shirt.name}">
+                <div>${suggestedOutfits[1].shirt.name} (${suggestedOutfits[1].shirt.color})</div>
+                <img src="${suggestedOutfits[1].pants.link.replace('blob', 'raw')}" alt="${suggestedOutfits[1].pants.name}">
+                <div>${suggestedOutfits[1].pants.name} (${suggestedOutfits[1].pants.color})</div>
+                <img src="${suggestedOutfits[1].watch.link.replace('blob', 'raw')}" alt="${suggestedOutfits[1].watch.name}">
+                <div>${suggestedOutfits[1].watch.name} (${suggestedOutfits[1].watch.color})</div>
+                <a href="${suggestedOutfits[1].buyLink}" class="buy-button">Buy Now</a>
+            `;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,533 @@
+:root {
+    --background-color: #ffffff;
+    --text-color: #333333;
+    --primary-color: #6C63FF;
+    --secondary-color: #000000;
+    --button-background: #000000;
+    --button-color: #ffffff;
+    --button-hover-background: #ffffff;
+    --button-hover-color: #000000;
+}
+
+.dark-mode {
+    --background-color: #000000;
+    --text-color: #ffffff;
+    --button-background: #fff;
+    --button-color: #000000;
+    --button-hover-background: #6C63FF;
+    --button-hover-color: #000000;
+}
+
+body {
+    background-color: var(--background-color);
+    background-image: var(--background-image);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.hero-content {
+    max-width: 50%;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.hero-content p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.hero-buttons {
+    margin-bottom: 15px;
+    
+}
+
+.hero-buttons a {
+    text-decoration: none; 
+    color: inherit;     
+}
+
+
+.scan-btn, .add-btn {
+    padding: 10px 20px;
+     background-color: var(--primary-color);
+    color: var(--background-color);
+    border: none;
+    margin-right: 5px;
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: 0.3s;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    
+}
+
+.scan-btn:hover, .add-btn:hover {
+    background-color: var(--button-hover-background);
+    color: var(--button-hover-color);
+}
+
+.search-bar {
+    display: flex;
+}
+
+.search-bar input {
+    padding: 8px;
+    width: 200px;
+    border: 1px solid #ddd;
+    border-radius: 20px 0 0 20px;
+    transition: 0.3s;
+}
+
+.search-bar button {
+    padding: 8px;
+    background-color: var(--button-background);
+    color: var(--button-color);
+    border: none;
+    border-radius: 0 20px 20px 0;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.hero-illustration {
+    max-width: 40%;
+}
+
+.hero-illustration img {
+    width: 100%;
+    height: auto;
+}
+
+.wardrobe-section {
+    padding: 20px 30px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.category-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.category-btn {
+    padding: 8px 15px;
+    margin: 5px;
+    background-color: var(--button-background);
+    color: var(--button-color);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 0.9rem;
+}
+
+.category-btn.active {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+}
+
+.wardrobe-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.wardrobe-items {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.category-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    flex: 0 0 100%;
+}
+
+.item-card {
+    background-color: var(--background-color);
+    border: 1px solid var(--text-color);
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    transition: 0.3s;
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    
+    height: 250px; 
+
+}
+.item-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.item-card img {
+    width: 100%;
+    height: 200px; 
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--button-background);
+    color: var(--button-color);
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    z-index: 10;
+}
+
+.nav-btn.prev {
+    left: 10px;
+}
+
+.nav-btn.next {
+    right: 10px;
+}
+
+.nav-btn:hover {
+    background-color: var(--primary-color);
+}
+
+
+
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 1.8rem; 
+        margin-bottom: 10px; 
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+        margin-bottom: 10px; 
+    }
+
+  
+    .hero-buttons {
+        display: flex;
+        gap: 10px; 
+        margin-bottom: 15px;
+    }
+
+    .scan-btn, .add-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    
+    .hero-illustration {
+        max-width: 40%;
+        position: relative;
+        top: -20px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .hero-content p {
+        display: none; 
+    }
+}
+
+
+
+.wardrobe-container1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.item-card1 {
+    background-color: var(--background-color);
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    width: 250px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 10px;
+    transition: transform 0.2s;
+    height: 300px;
+}
+
+.searchh1 {
+    padding-top: 15px;
+    padding-left: 10px;
+    text-align: center;
+}
+
+.item-card1:hover {
+    transform: scale(1.05);
+}
+
+.item-image1 {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.item-name1 {
+    font-size: 1.2em;
+    margin: 10px 0 5px;
+}
+
+.item-color1 {
+    color: #6c757d;
+}
+
+@media (max-width: 600px) {
+    .item-card1 {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+
+
+.page-title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #6C63FF;
+}
+
+.outfit-card-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.outfit-card {
+    background-color: var(--background-color);
+    border: 1px solid var(--text-color);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px;
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.outfit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.outfit-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.buy-outfit-button {
+    background-color: var(--button-background);
+    color: var(--button-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.buy-outfit-button:hover {
+    background-color: var(--button-hover-background);
+    color: var(--button-hover-color);
+}
+
+.dark-mode-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: var(--primary-color);
+    color: var(--button-color);
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+
+
+.card-link {
+    text-decoration: none;
+    color: inherit; 
+    display: block; 
+}
+
+.outfit-card:hover {
+    cursor: pointer; 
+}
+
+
+.container23 {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        #generateBtn {
+            font-size: 1.2rem;
+            padding: 1rem 2rem;
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        #generateBtn:hover {
+            transform: scale(1.05);
+            
+        }
+
+        #outfitContainer23 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .outfit-item23 {
+            width: 200px;
+            height: 200px;
+            margin: 1rem;
+            background-color: var(--white);
+            border: 2px solid var(--black);
+            border-radius: 10px;
+            overflow: hidden;
+            opacity: 0;
+            transform: scale(0.5);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .outfit-item23 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .generating23 {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .generating23.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .generating-text23 {
+            font-size: 2rem;
+            background-color: var(--button-background);
+    color: var(--button-color);
+            text-transform: uppercase;
+            letter-spacing: 0.5rem;
+            animation: pulse23 1.5s infinite;
+        }
+
+        @keyframes pulse23 {
+            0% { opacity: 0.5; transform: scale(0.95); }
+            50% { opacity: 1; transform: scale(1.05); }
+            100% { opacity: 0.5; transform: scale(0.95); }
+        }
+         
+        .gen12 {
+            text-align: center;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            
+            padding: 20px; 
+             background-color: var(--background-color);
+    color: var(--text-color);
+        }
+
+        .buy-button {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: red !important; /* Change to red with !important */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        
+
+        
+        
+        .suggimage {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .suggoutfit {
+    width: 25%;
+    text-align: center;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+   margin-left: 10%;
+   margin-right: 10%;
+   margin-bottom: 8%;
+    color: white;
+}
+
+
+        .suggoutfit img {
+            max-width: 80%; 
+            max-height: 100px; 
+            height: auto; 
+            margin: 5px 0; 
+        }
+        
+    
+.suggestion12 h1, h2{
+    text-align: center;
+}
+
+
+

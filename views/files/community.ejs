@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/community.css" />
+    <title>Community Exchange</title>
+  </head>
+
+  <body>
+    <%- include("../includes/navbar.ejs") %>
+    <div class="container">
+      <br /><br />
+      <h1>Community Exchange</h1>
+      <br />
+      <p class="caption">
+        "Give a new life to your wardrobe while helping someone else do the
+        same."
+      </p>
+      <div class="wardrobe-section">
+        <div class="category-buttons">
+          <button class="category-btn active" data-category="shirts">
+            Shirts
+          </button>
+          <button class="category-btn" data-category="pants">Pants</button>
+          <button class="category-btn" data-category="watches">Watches</button>
+          <button class="category-btn" data-category="belts">Belts</button>
+          <button class="category-btn" data-category="shoes">Shoes</button>
+          <button class="category-btn" data-category="perfume">Perfume</button>
+        </div>
+        <div class="wardrobe-container">
+          <button class="nav-btn prev">&lt;</button>
+          <div class="wardrobe-items">
+            <% Object.keys(wardrobeItems).forEach(category => { %>
+              <div class="category-section" id="<%= category %>">
+                <% wardrobeItems[category].forEach(item => { %>
+                  <div class="item-card">
+                    <img
+                      src="<%= item.link.replace('blob', 'raw') %>" <!-- Updated to replace 'blob' with 'raw' -->
+                      alt="<%= item.name %>"
+                      height="200"
+                      width="150"
+                    />
+                    <h3><%= item.name %></h3>
+                    <p><%= item.color %></p>
+                    <div class="item-actions">
+                      <button class="action-btn trade-btn"><a href="https://www.freeup.app/">Trade</a></button>
+                      <button class="action-btn donate-btn"><a href="https://clothesboxfoundation.org/pickup/">Donate</a></button>
+                      <button class="action-btn lend-btn"><a href="https://www.freeup.app/">Lend</a></button>
+                    </div>
+                  </div>
+                <% }); %>
+              </div>
+            <% }); %>
+          </div>
+          <button class="nav-btn next">&gt;</button>
+        </div>
+      </div>
+    </div>
+    <%- include("../includes/footer.ejs") %>
+
+    <script src="js/addcollection.js"></script>
+  </body>
+</html>
